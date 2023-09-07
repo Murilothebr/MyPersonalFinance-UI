@@ -12,3 +12,4 @@ export class WeatherClient {
   getWeatherData(): Observable<any> {
     return this.http.get(environment.apiUrl + '/WeatherForecast');
   }
+}
