@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationClient } from '../clients/authentication.client';
+import jwt_decode from "jwt-decode";
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
   private tokenKey = 'token';
+  private userIdKey = 'userId';
 
   constructor(
     private authenticationClient: AuthenticationClient,
@@ -16,6 +18,7 @@ export class AuthenticationService {
   public login(username: string, password: string): void {
     this.authenticationClient.login(username, password).subscribe((token) => {
       localStorage.setItem(this.tokenKey, token);
+      this.setUserIdInLocalStorage(token);
       this.router.navigate(['/']);
     });
   }
@@ -25,12 +28,14 @@ export class AuthenticationService {
       .register(username, email, password)
       .subscribe((token) => {
         localStorage.setItem(this.tokenKey, token);
+        this.setUserIdInLocalStorage(token);
         this.router.navigate(['/']);
       });
   }
 
   public logout() {
     localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.userIdKey);
     this.router.navigate(['/login']);
   }
 
@@ -41,5 +46,10 @@ export class AuthenticationService {
 
   public getToken(): string | null {
     return this.isLoggedIn() ? localStorage.getItem(this.tokenKey) : null;
+  }
+
+  public setUserIdInLocalStorage(token: string): void {
+    const decodedToken:any = jwt_decode(token);
+    localStorage.setItem(this.userIdKey, decodedToken.userId);
   }
 }
