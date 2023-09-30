@@ -1,1 +1,4 @@
-<p>wallet works!</p>
+<p *ngFor="let userWallet of userWallets | async">
+    {{ userWallet.walletName }}: {{ userWallet.bankName }}: {{ userWallet.totalValue }}
+  </p>
+  
