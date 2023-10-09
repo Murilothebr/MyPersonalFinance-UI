@@ -7,9 +7,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class WalletClient {
+  private userIdKey = 'userId';
+
   constructor(private http: HttpClient) {}
 
-  getClientData(): Observable<any> {
-    return this.http.get(environment.apiUrl + '/WeatherForecast');
+  getUserWallets(): Observable<any> {
+    const userId = localStorage.getItem(this.userIdKey);
+    return this.http.get(environment.apiRouteWallet + userId);
   }
 }

@@ -2,7 +2,7 @@ import { TokenInterceptor } from './helpers/token.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { CardModule } from 'primeng/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SecretComponent } from './secret/secret.component';
@@ -16,6 +16,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { WalletComponent } from './wallet/wallet.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { WalletComponent } from './wallet/wallet.component';
     LoginPageComponent,
     RegisterPageComponent,
     WalletComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,8 @@ import { WalletComponent } from './wallet/wallet.component';
     MatFormFieldModule,
     MatCardModule,
     MatInputModule,
+    CardModule,
+    DividerModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
