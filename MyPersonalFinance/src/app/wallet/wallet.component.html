@@ -1,6 +1,24 @@
-<h1>Suas carteiras</h1>
+<div class="WalletCards">
 
-<p *ngFor="let userWallet of userWallets | async">
-    {{ userWallet.walletName }}: {{ userWallet.bankName }}: {{ userWallet.totalValue }}
-  </p>
-  
+  <p-card header="Suas carteiras">
+
+    <tr *ngFor="let userWallet of userWallets | async">
+
+      <div class="card">
+
+        <h1> {{ userWallet.walletName }} </h1>
+    
+        <p> instituição {{ userWallet.bankName }} </p>
+
+        <p> valor total Carteira R${{ userWallet.totalValue }}.00 </p>
+
+    <tr *ngFor="let userStock of userWallet.userStock">
+      <li> sigla: {{ userStock.mnemonic }} </li>
+      <li> cotas: {{ userStock.shares }} </li>
+      <li> valor medio de compra: R${{ userStock.averageValue }}.00 </li>
+      <li> valor medio atual: R${{ userStock.currentValue }} </li>
+    </tr>
+
+    <p-divider></p-divider>
+</div>
+</p-card>
