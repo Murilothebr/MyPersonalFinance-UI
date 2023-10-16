@@ -4,12 +4,10 @@
 
     <tr *ngFor="let userWallet of userWallets | async">
 
-      <div class="card">
+      <div class="wallet">
 
         <h1> {{ userWallet.walletName }} </h1>
-    
-        <p> instituição {{ userWallet.bankName }} </p>
-
+        <h2> {{ userWallet.bankName }} </h2>
         <p> valor total Carteira R${{ userWallet.totalValue }}.00 </p>
 
     <tr *ngFor="let userStock of userWallet.userStock">
@@ -20,5 +18,6 @@
     </tr>
 
     <p-divider></p-divider>
+
 </div>
 </p-card>
