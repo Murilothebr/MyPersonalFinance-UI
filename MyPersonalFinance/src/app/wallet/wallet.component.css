@@ -1,26 +1,36 @@
 .WalletCards {
     margin: auto;
     width: 50%;
-    color: #373636;
     padding: 2px;
+    color: #15AAFF;
 }
 
 p-card[header="Suas carteiras"] {
-    text-align: center;
     padding: 10px;
-    display: flex; /* Transforma o p-card em um contêiner flexível */
-    justify-content: center; /* Centraliza os filhos horizontalmente */
+    display: flex;
+    color: #15AAFF;
 }
 
-.wallet{
+.wallet {
     font-weight: bold;
-    align-content: center ;
     background-color: #ffffff;
     padding: 10px;
-    max-width: 100%; /* Faz com que o elemento tenha no máximo 100% da largura do contêiner pai */
-    width: 500px; /* Define uma largura específica para o elemento, você pode ajustar conforme necessário */
+    max-width: 100%;
+    width: 500px;
 }
 
 .wallet h1 {
     font-weight: bold;
+    text-align: center;
+}
+
+.wallet h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.stocks {
+    background-color: #ffffff;
+    color: #373636;
+    
 }
