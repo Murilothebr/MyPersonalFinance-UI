@@ -7,18 +7,17 @@
 
         <h1> {{ userWallet.walletName }} </h1>
         <h2> {{ userWallet.bankName }} </h2>
-        <h2> Patrimonio R${{ userWallet.totalValue }}.00 </h2>
-
+        <p> Patrimonio ${{ userWallet.totalValue }} </p>
+        <p-divider></p-divider>
     <tr *ngFor="let userStock of userWallet.userStock">
 
       <div class="stocks">
         <p> sigla: {{ userStock.mnemonic }} </p>
         <p> cotas: {{ userStock.shares }} </p>
-        <p> valor atual R${{ userStock.currentValue }}.00 </p>
-        <p> valor abertura R${{ userStock.averageValue }}.00 </p>
+        <p> valor atual R${{ userStock.currentValue }} </p>
+        <p> valor abertura R${{ userStock.averageValue }} </p>
         <p-divider></p-divider>
       </div>
     </tr>
 </div>
-<p-divider></p-divider>
 </p-card>

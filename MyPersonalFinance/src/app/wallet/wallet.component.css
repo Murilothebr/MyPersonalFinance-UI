@@ -1,8 +1,13 @@
 .WalletCards {
-    margin: auto;
-    width: 50%;
     padding: 2px;
-    color: #15AAFF;
+    color: #15AAFF; 
+    width: 100%; 
+    max-width: 600px; /* Define uma largura máxima para a div em pixels */
+    margin: 0 auto;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
 }
 
 p-card[header="Suas carteiras"] {
@@ -32,5 +37,4 @@ p-card[header="Suas carteiras"] {
 .stocks {
     background-color: #ffffff;
     color: #373636;
-    
 }
