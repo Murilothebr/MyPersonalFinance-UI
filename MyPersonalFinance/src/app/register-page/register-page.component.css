@@ -16,3 +16,9 @@
     color: #373636;
     background-color: #F8F7F3;
 }
+
+.disabled-button {
+    background-color: #cccccc; 
+    color: #666666; 
+    cursor: not-allowed;
+  }
