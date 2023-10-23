@@ -1,6 +1,13 @@
 import { AuthenticationService } from './../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+
+// Função de validação personalizada para a senha
+export function passwordValidator(control: AbstractControl): { [key: string]: boolean } | null {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  const isValid = regex.test(control.value);
+  return isValid ? null : { 'invalidPassword': true };
+}
 
 @Component({
   selector: 'app-register-page',
@@ -14,16 +21,10 @@ export class RegisterPageComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit() {
-    const passwordPattern: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    
-
     this.registerForm = new FormGroup({
       username: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.pattern(passwordPattern),
-      ]),
+      password: new FormControl('', [Validators.required, passwordValidator]),
     });
 
     this.registerForm.statusChanges.subscribe(() => {

@@ -24,6 +24,9 @@
         <mat-form-field>
           <mat-label>Senha</mat-label>
           <input matInput type="password" formControlName="password" />
+          <div class=alert *ngIf="registerForm.get('password')?.hasError('invalidPassword') && !registerForm.get('password')?.pristine && registerForm.get('password')?.touched">
+            A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula, um número e um caractere especial.
+          </div>
         </mat-form-field>
       </form>
     </mat-card-content>
