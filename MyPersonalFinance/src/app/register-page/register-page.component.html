@@ -5,7 +5,7 @@
 >
   <mat-card class="authentication-card">
     <mat-card-header>
-      <mat-card-title>Register</mat-card-title></mat-card-header
+      <mat-card-title>Criar Conta</mat-card-title></mat-card-header
     >
     <mat-card-content>
       <form
@@ -14,7 +14,7 @@
         fxLayoutAlign="center stretch"
       >
         <mat-form-field>
-          <mat-label>Username</mat-label>
+          <mat-label>Nome de Usuario</mat-label>
           <input matInput formControlName="username" />
         </mat-form-field>
         <mat-form-field>
@@ -22,17 +22,17 @@
           <input matInput type="email" formControlName="email" />
         </mat-form-field>
         <mat-form-field>
-          <mat-label>Password</mat-label>
+          <mat-label>Senha</mat-label>
           <input matInput type="password" formControlName="password" />
         </mat-form-field>
       </form>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" (click)="onSubmit()">
-        Register
+        Registrar
       </button>
       <button mat-button routerLink="/login" routerLinkActive="active">
-        Already have an account? Login here.
+        Já tem conta? Logue aqui!
       </button>
     </mat-card-actions>
   </mat-card>
