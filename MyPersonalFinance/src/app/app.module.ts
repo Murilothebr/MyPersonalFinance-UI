@@ -19,6 +19,7 @@ import { WalletComponent } from './wallet/wallet.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DividerModule } from 'primeng/divider';
+import { CreateWalletComponent } from './create-wallet/create-wallet.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DividerModule } from 'primeng/divider';
     WalletComponent,
     HeaderComponent,
     FooterComponent,
+    CreateWalletComponent,
   ],
   imports: [
     BrowserModule,
