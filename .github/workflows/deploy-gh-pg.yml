@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: ls
-        run: ls ./MyPersonalFinance/dist
+        run: ls ./MyPersonalFinance/
 
       - name: Archive build
         if: success()
