@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: ls
-        run: ls ./MyPersonalFinance
+        run: ls ./MyPersonalFinance/dist
 
       - name: Archive build
         if: success()
@@ -58,4 +58,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: ./MyPersonalFinance/dist/personal-finance
+          FOLDER: ./MyPersonalFinance/dist/
