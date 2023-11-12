@@ -26,18 +26,18 @@ jobs:
         working-directory: ./MyPersonalFinance
         run: npm run build
 
-      - name: Archive build
-        if: success()
-        uses: actions/upload-artifact@v1
-        with:
-          name: deploy_dist
-          path: dist
-          
       - name: ls
         run: |
               ls
               ls ./MyPersonalFinance
 
+      - name: Archive build
+        if: success()
+        uses: actions/upload-artifact@v1
+        with:
+          name: deploy_dist
+          path: ./MyPersonalFinance/dist
+          
       - name: Archive code coverage result
         if: success()
         uses: actions/upload-artifact@v1
