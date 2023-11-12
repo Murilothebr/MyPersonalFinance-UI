@@ -17,14 +17,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-          
-      - name: cd
-        run: cd MyPersonalFinance
-
+      
       - name: Install dependencies
+        working-directory: ./MyPersonalFinance
         run: npm ci
         
       - name: Build
+        working-directory: ./MyPersonalFinance
         run: npm run build:ci
 
       - name: Archive build
@@ -33,6 +32,12 @@ jobs:
         with:
           name: deploy_dist
           path: dist
+          
+      - name: ls
+        run: |
+              ls
+              ls ./MyPersonalFinance
+
       - name: Archive code coverage result
         if: success()
         uses: actions/upload-artifact@v1
@@ -55,4 +60,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: deploy_dist/personal-finance
+          FOLDER: /MyPersonalFinance/deploy_dist/personal-finance
