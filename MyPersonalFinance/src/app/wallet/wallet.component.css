@@ -1,40 +1,55 @@
 .WalletCards {
-    padding: 2px;
-    color: #15AAFF; 
-    width: 100%; 
-    max-width: 600px; /* Define uma largura máxima para a div em pixels */
+    margin-top: 100px;
+    padding: 10px;
+    color: #15AAFF;
+    width: 100%;
+    max-width: 600px;
     margin: 0 auto;
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
 }
 
 p-card[header="Suas carteiras"] {
-    padding: 10px;
+    padding: 20px;
     display: flex;
     color: #15AAFF;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #ffffff;
 }
+
 
 .wallet {
-    font-weight: bold;
     background-color: #ffffff;
-    padding: 10px;
-    max-width: 100%;
-    width: 500px;
+    padding: 20px;
+    margin: 10px 0;
 }
 
-.wallet h1 {
-    font-weight: bold;
-    text-align: center;
-}
-
+.wallet h1,
 .wallet h2 {
-    font-weight: bold;
     text-align: center;
+    margin-bottom: 10px;
+}
+
+.stocks-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.stocks-container h3 {
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .stocks {
     background-color: #ffffff;
     color: #373636;
+    padding: 15px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }

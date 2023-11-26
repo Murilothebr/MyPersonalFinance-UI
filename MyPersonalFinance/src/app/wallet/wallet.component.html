@@ -1,23 +1,19 @@
 <div class="WalletCards">
-
   <p-card header="Suas carteiras">
+    <div *ngFor="let userWallet of userWallets | async" class="wallet">
+      <h1>{{ userWallet.walletName }}</h1>
+      <h2>{{ userWallet.bankName }}</h2>
+      <p>Patrimônio R${{ userWallet.totalValue }}</p>
+      <p-divider></p-divider>
 
-    <tr *ngFor="let userWallet of userWallets | async">
-      <div class="wallet">
-
-        <h1> {{ userWallet.walletName }} </h1>
-        <h2> {{ userWallet.bankName }} </h2>
-        <p> Patrimonio ${{ userWallet.totalValue }} </p>
-        <p-divider></p-divider>
-    <tr *ngFor="let userStock of userWallet.userStock">
-
-      <div class="stocks">
-        <p> sigla: {{ userStock.mnemonic }} </p>
-        <p> cotas: {{ userStock.shares }} </p>
-        <p> valor atual R${{ userStock.currentValue }} </p>
-        <p> valor abertura R${{ userStock.averageValue }} </p>
-        <p-divider></p-divider>
+      <div class="stocks-container">
+        <div *ngFor="let userStock of userWallet.userStock" class="stocks">
+          <h3>{{ userStock.mnemonic }}</h3>
+          <p>cotas {{ userStock.shares }}</p>
+          <p>valor atual R${{ userStock.currentValue }}</p>
+          <p>valor abertura R${{ userStock.averageValue }}</p>
+        </div>
       </div>
-    </tr>
+    </div>
+  </p-card>
 </div>
-</p-card>

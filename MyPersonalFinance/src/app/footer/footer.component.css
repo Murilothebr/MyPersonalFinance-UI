@@ -1,0 +1,36 @@
+.header {
+    background-color: #15AAFF;
+    /* Cor de fundo do cabeçalho */
+    color: #ffffff;
+    /* Cor do texto no cabeçalho */
+    padding: 10px;
+    /* Espaçamento interno do cabeçalho */
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links a {
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 20px;
+    /* Espaçamento entre os links */
+}
+
+.links a:hover {
+    text-decoration: underline;
+    /* Sublinhado ao passar o mouse sobre os links */
+}
+
+mat-card-actions {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    margin-left: auto;
+    /* Alinha o botão à direita do contêiner mat-card-actions */
+}
