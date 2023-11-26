@@ -1,1 +1,22 @@
-<p>add-stock-modal works!</p>
+<h2 mat-dialog-title>Adicionar Ação</h2>
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Nome da Carteira" [(ngModel)]="walletName" name="walletName" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Ticker" [(ngModel)]="stockTicker" name="stockTicker" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Cotas" [(ngModel)]="stockShares" name="stockShares" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Valor entrada" [(ngModel)]="averageValue" name="averageValue" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Adicionar</button>
+  </form>
+</mat-dialog-content>

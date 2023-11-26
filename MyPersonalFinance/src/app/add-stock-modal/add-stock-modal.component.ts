@@ -1,44 +1,49 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-add-stock-modal',
-  template: `
-    <h2 mat-dialog-title>Adicionar Ação</h2>
-    <mat-dialog-content>
-      <!-- Seu formulário para adicionar ações -->
-      <form (ngSubmit)="onSubmit()">
-        <!-- Adicione campos do formulário conforme necessário -->
-        <!-- Exemplo: -->
-        <mat-form-field>
-          <input matInput placeholder="Mnemônico" [(ngModel)]="stockMnemonic" name="stockMnemonic" required>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input matInput type="number" placeholder="Cotas" [(ngModel)]="stockShares" name="stockShares" required>
-        </mat-form-field>
-
-        <!-- Adicione outros campos conforme necessário -->
-
-        <button mat-raised-button color="primary" type="submit">Adicionar</button>
-      </form>
-    </mat-dialog-content>
-  `,
+  templateUrl: './add-stock-modal.component.html',
+  styleUrls: ['./add-stock-modal.component.css']
 })
 export class AddStockModalComponent {
-  stockMnemonic: string = '';
+  userId: string | null = null;
+  walletName: string = '';
+  stockTicker: string = '';
   stockShares: number = 0;
+  averageValue: number = 0;
+  currentValue: number = 0;
 
   constructor(
     public dialogRef: MatDialogRef<AddStockModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private http: HttpClient  // Injete o serviço HttpClient
   ) {}
 
   onSubmit(): void {
-    // Lógica para adicionar ação ao banco de dados ou à lista de ações da carteira
-    // Certifique-se de ajustar conforme necessário
+    
+    this.userId = localStorage.getItem('userId');
 
-    // Fechar o modal após adicionar ação
+    const formData = {
+      userId: this.userId,
+      walletName: this.walletName,
+      mnemonic: this.stockTicker,
+      shares: this.stockShares,
+      averageValue: this.averageValue,
+      currentValue: this.currentValue
+    };
+
+    console.log('payload = ' + formData);
+    const apiUrl = environment.apiUrl + '/api/Wallet/CreateStockInWallet';
+
+    // Faça a requisição POST
+    this.http.post(apiUrl, formData).subscribe(response => {
+      console.log('Requisição POST bem-sucedida', response);
+      // Adicione lógica adicional conforme necessário
+    });
+
     this.dialogRef.close();
   }
 }
