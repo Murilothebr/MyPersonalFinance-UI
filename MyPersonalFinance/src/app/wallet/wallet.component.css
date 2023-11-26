@@ -20,7 +20,6 @@ p-card[header="Suas carteiras"] {
     border: 1px solid #ffffff;
 }
 
-
 .wallet {
     background-color: #ffffff;
     padding: 20px;
@@ -35,15 +34,13 @@ p-card[header="Suas carteiras"] {
 
 .stocks-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    /* Alteração para tornar a direção da flexão como coluna */
+    align-items: center;
+    /* Adicionado para centralizar os elementos na coluna */
 }
 
-.stocks-container h3 {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.stocks {
+.stocks-container .stocks {
     background-color: #ffffff;
     color: #373636;
     padding: 15px;
@@ -52,4 +49,18 @@ p-card[header="Suas carteiras"] {
     border-radius: 8px;
     flex: 1;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo para o botão */
+.wallet button {
+    margin-top: 10px;
+    /* Distância entre stocks e o botão */
+    padding: 10px 15px;
+    left: 43%;
+}
+
+/* Estilizar o ícone dentro do botão */
+.wallet button mat-icon {
+    color: #15AAFF;
 }

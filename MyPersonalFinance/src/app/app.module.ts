@@ -20,6 +20,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DividerModule } from 'primeng/divider';
 import { CreateWalletComponent } from './create-wallet/create-wallet.component';
+import { AddStockModalComponent } from './add-stock-modal/add-stock-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { CreateWalletComponent } from './create-wallet/create-wallet.component';
     HeaderComponent,
     FooterComponent,
     CreateWalletComponent,
+    AddStockModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ import { CreateWalletComponent } from './create-wallet/create-wallet.component';
     MatCardModule,
     MatInputModule,
     CardModule,
-    DividerModule
+    DividerModule,
+    MatDialogModule,
+    MatIconModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
