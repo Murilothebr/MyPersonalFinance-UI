@@ -24,12 +24,12 @@ export class WalletComponent implements OnInit {
 
   openAddStockModal(userWallet: any): void {
     const dialogRef = this.dialog.open(AddStockModalComponent, {
-      width: '400px', // Ajuste o tamanho conforme necessário
+      width: '400px', 
       data: { userWallet: userWallet }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // Lógica após fechar o modal (se necessário)
+    
     });
   }
 }

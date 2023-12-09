@@ -19,8 +19,7 @@ export class AddStockModalComponent {
   constructor(
     public dialogRef: MatDialogRef<AddStockModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private http: HttpClient  // Injete o serviço HttpClient
-  ) {}
+    private http: HttpClient  ) {}
 
   onSubmit(): void {
     
@@ -38,11 +37,9 @@ export class AddStockModalComponent {
     console.log('payload = ' + formData);
     const apiUrl = environment.apiUrl + '/api/Wallet/CreateStockInWallet';
 
-    // Faça a requisição POST
     this.http.post(apiUrl, formData).subscribe(response => {
       console.log('Requisição POST bem-sucedida', response);
-      // Adicione lógica adicional conforme necessário
-    });
+    }); 
 
     this.dialogRef.close();
   }
